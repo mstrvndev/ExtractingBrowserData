@@ -1,12 +1,12 @@
 <div align="center">
-<img src="LOGO.png" alt="hack-browser-data logo" width="440px" />
+<img src="LOGO.png" alt="extract-browser-data logo" width="440px" />
 </div> 
 
-# HackBrowserData
+# ExtractBrowserData
 
-[![Lint](https://github.com/moonD4rk/HackBrowserData/actions/workflows/lint.yml/badge.svg)](https://github.com/moonD4rk/HackBrowserData/actions/workflows/lint.yml) [![Build](https://github.com/moonD4rk/HackBrowserData/actions/workflows/build.yml/badge.svg)](https://github.com/moonD4rk/HackBrowserData/actions/workflows/build.yml) [![Release](https://github.com/moonD4rk/HackBrowserData/actions/workflows/release.yml/badge.svg)](https://github.com/moonD4rk/HackBrowserData/actions/workflows/release.yml) [![Tests](https://github.com/moonD4rk/HackBrowserData/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/moonD4rk/HackBrowserData/actions/workflows/test.yml) [![Coverage Status](https://coveralls.io/repos/github/moonD4rk/HackBrowserData/badge.svg)](https://coveralls.io/github/moonD4rk/HackBrowserData)
+[![Lint](https://github.com/mstrvndev/ExtractingBrowserData/actions/workflows/lint.yml/badge.svg)](https://github.com/mstrvndev/ExtractingBrowserData/actions/workflows/lint.yml) [![Build](https://github.com/mstrvndev/ExtractingBrowserData/actions/workflows/build.yml/badge.svg)](https://github.com/mstrvndev/ExtractingBrowserData/actions/workflows/build.yml) [![Release](https://github.com/mstrvndev/ExtractingBrowserData/actions/workflows/release.yml/badge.svg)](https://github.com/mstrvndev/ExtractingBrowserData/actions/workflows/release.yml) [![Tests](https://github.com/mstrvndev/ExtractingBrowserData/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/mstrvndev/ExtractingBrowserData/actions/workflows/test.yml) [![Coverage Status](https://coveralls.io/repos/github/mstrvndev/ExtractingBrowserData/badge.svg)](https://coveralls.io/github/mstrvndev/ExtractingBrowserData)
 
-`HackBrowserData` is a command-line tool for decrypting and exporting browser data (passwords, history, cookies, bookmarks, credit cards, download history, localStorage and extensions) from the browser. It supports the most popular browsers on the market and runs on Windows, macOS and Linux.
+`ExtractBrowserData` is a command-line tool for decrypting and exporting browser data (passwords, history, cookies, bookmarks, credit cards, download history, localStorage and extensions) from the browser. It supports the most popular browsers on the market and runs on Windows, macOS and Linux.
 
 > Disclaimer: This tool is only intended for security research. Users are responsible for all legal and related liabilities resulting from the use of this tool. The original author does not assume any legal responsibility.
 
@@ -14,9 +14,9 @@
 
 ### Firefox 144+ Support
 
-HackBrowserData now supports decryption of saved passwords in Firefox 144 and later versions.
+ExtractBrowserData now supports decryption of saved passwords in Firefox 144 and later versions.
 
-Starting from Firefox 144, Mozilla migrated password encryption from 3DES to AES-256-CBC to enhance security. HackBrowserData has been updated accordingly and remains fully compatible with the latest Firefox encryption scheme.
+Starting from Firefox 144, Mozilla migrated password encryption from 3DES to AES-256-CBC to enhance security. ExtractBrowserData has been updated accordingly and remains fully compatible with the latest Firefox encryption scheme.
 
 For more details:
 - [Firefox 144.0 Release Notes](https://www.firefox.com/en-US/firefox/144.0/releasenotes/)
@@ -94,7 +94,7 @@ Based on Apple's security policy, some browsers **require a current user passwor
 
 ### Install
 
-Installation of `HackBrowserData` is dead-simple, just download [the release for your system](https://github.com/moonD4rk/HackBrowserData/releases) and run the binary.
+Installation of `ExtractBrowserData` is dead-simple, just download [the release for your system](https://github.com/mstrvndev/ExtractingBrowserData/releases) and run the binary.
 
 > In some situations, this security tool will be treated as a virus by Windows Defender or other antivirus software and can not be executed. The code is all open source, you can modify and compile by yourself.
 
@@ -103,9 +103,9 @@ Installation of `HackBrowserData` is dead-simple, just download [the release for
 only support `go 1.20+` with go generics.
 
 ```bash
-$ git clone https://github.com/moonD4rk/HackBrowserData
+$ git clone https://github.com/mstrvndev/ExtractingBrowserData
 
-$ cd HackBrowserData/cmd/hack-browser-data
+$ cd ExtractBrowserData/cmd/extract-browser-data
 
 $ go build
 ```
@@ -131,13 +131,13 @@ GOOS=linux GOARCH=amd64 go build
 You can double-click to run, or use command line.
 
 ```powershell
-PS C:\Users\moond4rk\Desktop> .\hack-browser-data.exe -h
+PS C:\Users\mstrvndev\Desktop> .\extract-browser-data.exe -h
 NAME:
-   hack-browser-data - Export passwords|bookmarks|cookies|history|credit cards|download history|localStorage|extensions from browser
+   extract-browser-data - Export passwords|bookmarks|cookies|history|credit cards|download history|localStorage|extensions from browser
 USAGE:
-   [hack-browser-data -b chrome -f json --dir results --zip]
+   [extract-browser-data -b chrome -f json --dir results --zip]
    Export all browsing data (passwords/cookies/history/bookmarks) from browser
-   Github Link: https://github.com/moonD4rk/HackBrowserData
+   Github Link: https://github.com/mstrvndev/ExtractingBrowserData
 VERSION:
    0.4.6
 
@@ -157,10 +157,10 @@ GLOBAL OPTIONS:
 For example, the following is an automatic scan of the browser on the current computer, outputting the decryption results in `JSON` format and compressing as `zip`.
 
 ```powershell
-PS C:\Users\moond4rk\Desktop> .\hack-browser-data.exe -b all -f json --dir results --zip
+PS C:\Users\mstrvndev\Desktop> .\extract-browser-data.exe -b all -f json --dir results --zip
 
-PS C:\Users\moond4rk\Desktop> ls -l .\results\
-    Directory: C:\Users\moond4rk\Desktop\results
+PS C:\Users\mstrvndev\Desktop> ls -l .\results\
+    Directory: C:\Users\mstrvndev\Desktop\results
     
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
@@ -172,7 +172,7 @@ Mode                 LastWriteTime         Length Name
 
 If you want to export data from a custom browser profile folder, you can use the `-p` parameter to specify the path of the browser profile folder. PS: use double quotes to wrap the path.
 ```powershell
-PS C:\Users\moond4rk\Desktop> .\hack-browser-data.exe -b chrome -p "C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default"
+PS C:\Users\mstrvndev\Desktop> .\extract-browser-data.exe -b chrome -p "C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default"
 
 [NOTICE] [browsingdata.go:59,Output] output to file results/chrome_creditcard.csv success  
 [NOTICE] [browsingdata.go:59,Output] output to file results/chrome_bookmark.csv success  
@@ -194,15 +194,15 @@ Please see the [Contribution Guide](CONTRIBUTING.md) before contributing.
 ![](/CONTRIBUTORS.svg)
 
 ## Stargazers over time
-[![Star History Chart](https://api.star-history.com/svg?repos=moond4rk/hackbrowserdata&type=Date)](https://github.com/moond4rk/HackBrowserData)
+[![Star History Chart](https://api.star-history.com/svg?repos=mstrvndev/ExtractingBrowserData&type=Date)](https://github.com/mstrvndev/ExtractingBrowserData)
 
 
 ## 404StarLink 2.0 - Galaxy
-`HackBrowserData` is a part of 404Team [StarLink-Galaxy](https://github.com/knownsec/404StarLink2.0-Galaxy), if you have any questions about `HackBrowserData` or want to find a partner to communicate with，please refer to the [Starlink group](https://github.com/knownsec/404StarLink2.0-Galaxy#community).
+`ExtractBrowserData` is a part of 404Team [StarLink-Galaxy](https://github.com/knownsec/404StarLink2.0-Galaxy), if you have any questions about `ExtractBrowserData` or want to find a partner to communicate with，please refer to the [Starlink group](https://github.com/knownsec/404StarLink2.0-Galaxy#community).
 <a href="https://github.com/knownsec/404StarLink2.0-Galaxy" target="_blank"><img src="https://raw.githubusercontent.com/knownsec/404StarLink-Project/master/logo.png" align="middle"/></a>
 
 ##  JetBrains OS licenses
-``HackBrowserData`` had been being developed with `GoLand` IDE under the **free JetBrains Open Source license(s)** granted by JetBrains s.r.o., hence I would like to express my thanks here.
+``ExtractBrowserData`` had been being developed with `GoLand` IDE under the **free JetBrains Open Source license(s)** granted by JetBrains s.r.o., hence I would like to express my thanks here.
 
-<a href="https://www.jetbrains.com/?from=HackBrowserData" target="_blank"><img src="https://raw.githubusercontent.com/moonD4rk/staticfiles/master/picture/jetbrains-variant-4.png" width="256" align="middle"/></a>
+<a href="https://www.jetbrains.com/?from=ExtractBrowserData" target="_blank"><img src="https://raw.githubusercontent.com/mstrvndev/staticfiles/master/picture/jetbrains-variant-4.png" width="256" align="middle"/></a>
 
